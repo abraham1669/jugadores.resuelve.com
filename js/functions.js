@@ -66,7 +66,7 @@ export function hayRegistros() {
   }
 }
 export async function getNiveles() {
-  const response = await axios.get("http://localhost/api.resuelve.com/niveles")
+  const response = await axios.get("http://api.internet-rv.com.mx/niveles")
   if (response.status == 200) {
     const niveles = renderNiveles(response.data)
     $("#nivel").html(niveles)
@@ -86,7 +86,7 @@ function renderNiveles(obj) {
   return template
 }
 export async function getEquipos() {
-  const response = await axios.get("http://localhost/api.resuelve.com/equipos")
+  const response = await axios.get("http://api.internet-rv.com.mx/equipos")
   if (response.status == 200) {
     const equipos = renderEquipos(response.data)
     $("#equipo").html(equipos)

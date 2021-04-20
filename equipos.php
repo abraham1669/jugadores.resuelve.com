@@ -44,14 +44,10 @@
       <div class="col-sm-4 offset-sm-4">
         <form action="#" method="POST" id="formSueldos">
           <div class="form-group mb-3">
-            <label for="nombre">Nivel: </label>
+            <label for="nombre">Equipo: </label>
             <input type="text" id="nombre" name="nombre" class="form-control" />
           </div>
-          <div class="form-group mb-3">
-            <label for="goles_minimos">Goles mínimos: </label>
-            <input type="number" id="goles_minimos" name="goles_minimos" class="form-control" />
-          </div>
-          <button class="btn btn-primary" id="btnAgregarNiveles" type="button">Agregar</button>
+          <button class="btn btn-primary" id="btnAgregarEquipos" type="button">Agregar</button>
         </form>
       </div>
     </div>

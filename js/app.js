@@ -59,7 +59,12 @@ $("#btnEnviar").click(async function () {
     })
   obj["jugadores"] = registros
   console.log(obj)
-  const response = await axios.post("https://api.chalaneros.com/jugadores", obj)
+  const headers = {
+    "Content-Type": "application/json",
+  }
+  const response = await axios.post("http://api.internet-rv.com.mx/jugadores", obj, {
+    headers: headers,
+  })
   if (response.status == 200) {
     const respuesta = response.data.jugadores
     let template = `
@@ -69,7 +74,7 @@ $("#btnEnviar").click(async function () {
     `
     respuesta.map(function (i, e) {
       template += `
-      <div class="col-sm-4 text-center">
+      <div class="col-sm-4 text-center mb-5">
         <div class="card">
           <img src="https://resuelvetudeuda.com/wp-content/uploads/2020/10/Logo_Resuelve_tu_Deuda_NV_trans.png" alt="" class="img-resuelve card-img-top">
           <div class="card-body">
@@ -98,7 +103,38 @@ $("#btnAgregarNiveles").click(async function () {
     )
   } else {
     delete row.status
-    const response = await axios.post("https://api.chalaneros.com/niveles", row)
+    const headers = {
+      "Content-Type": "application/json",
+    }
+    const response = await axios.post("http://api.internet-rv.com.mx/niveles", row, {
+      headers: headers,
+    })
+    if (response.status == 200) {
+      location.href = "/"
+    }
+    console.log(response)
+  }
+})
+$("#btnAgregarEquipos").click(async function () {
+  let row = validaDatos()
+  delete row.sueldo_completo
+  if (!row.status) {
+    Swal.fire(
+      "Datos son incorrectos",
+      "Verifica los siguientes campos: " + row.errors.join(", "),
+      "error",
+    )
+  } else {
+    delete row.status
+    const headers = {
+      "Content-Type": "application/json",
+    }
+    const response = await axios.post("http://api.internet-rv.com.mx/equipos", row, {
+      headers: headers,
+    })
+    if (response.status == 200) {
+      location.href = "/"
+    }
     console.log(response)
   }
 })

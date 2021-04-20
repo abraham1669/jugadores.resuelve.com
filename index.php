@@ -1,7 +1,3 @@
-<?php 
-  require_once 'libs/medoo.php';
-  require_once 'libs/_db.php';
-?>
 <!DOCTYPE html>
 <html lang="es-MX">
 
@@ -37,8 +33,8 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="./">Home</a>
-          <a class="nav-link" href="./niveles">Niveles</a>
-          <a class="nav-link" href="./equipos">Equipos</a>
+          <a class="nav-link" href="./niveles.php">Niveles</a>
+          <a class="nav-link" href="./equipos.php">Equipos</a>
         </div>
       </div>
     </div>
@@ -61,15 +57,7 @@
             <div class="col-sm-6">
               <div class="form-group mb-3">
                 <label for="equipo">Equipo: </label>
-                <select name="equipo" id="equipo" class="form-select">
-                  <option value="">Selecciona una opción</option>
-                  <?php 
-                  $equipos = $db->select("equipos", "*");
-                  foreach ($equipos as $equipo => $eq) {
-                    ?>
-                  <option value="<?php echo $eq['nombre_eq']; ?>"><?php echo $eq['nombre_eq'] ?></option>
-                  <?php } ?>
-                </select>
+                <select name="equipo" id="equipo" class="form-select"></select>
               </div>
             </div>
             <div class="col-sm-4">
